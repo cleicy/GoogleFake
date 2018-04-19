@@ -1,0 +1,36 @@
+<div>
+  <form class="form-inline justify-content-center">
+      <input class="form-control" type="search" placeholder="Pesquisar no Google ou digitar URL" aria-label="Pesquisar no Google ou digitar URL">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar</button>
+  </form>
+  <form class="form-inline">
+      <div class="container">
+          <div class="row" *ngIf="mostrarPagina; else paginaUnica">
+            <div class="col-md-3" *ngFor="let ultimaspaginas of ultimaspaginas">
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Google fake</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Cópia?</h5>
+                      <img class="card-img-bottom" [src]="google_logo" alt="Card image cap">
+                      <button (click)="esconderPagina()" type="button" class="btn btn-sm btn-danger">Ir</button>
+                    </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </form>
+</div>
+<ng-template #paginaUnica>
+    <div class="row">
+      <div class="col-md-12">
+          <div class="card bg-light mb-12" style="max-width: 80rem;">
+              <div class="card-header">Google fake</div>
+              <div class="card-body">
+              <h5 class="card-title">Cópia?</h5>
+              <p class="card-text">Sim, é só uma cópia barata.</p>
+              <button (click)="mostrarPaginas()" type="button" class="btn btn-sm btn-danger">Voltar</button>
+            </div>
+      </div>
+    </div>
+  </div>
+  </ng-template> 
